@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Context Window Pressure Monitor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.5;
+    }
+
+    textarea, input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Context Window Pressure Monitor</h1>
+  <p>Estimate context load, overflow risk, and chunking requirements for LLM workflows.</p>
+
+  <label for="text">Input text</label>
+  <textarea id="text" rows="10" placeholder="Paste text here"></textarea>
+
+  <label for="limit">Context limit (tokens)</label>
+  <input id="limit" type="number" value="8192" />
+
+  <button onclick="analyze()">Analyze</button>
+
+  <div class="box">
+    <p><strong>Characters:</strong> <span id="chars">-</span></p>
+    <p><strong>Estimated Tokens:</strong> <span id="tokens">-</span></p>
+    <p><strong>Pressure Ratio:</strong> <span id="ratio">-</span></p>
+    <p><strong>Pressure Level:</strong> <span id="level">-</span></p>
+    <p><strong>Recommended Chunks:</strong> <span id="chunks">-</span></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
